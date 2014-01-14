@@ -26,8 +26,16 @@ int game::getCurrentPlayer(){
 }
 
 void game::draw(){
-	std::cout << INDENT << " \033[31mPlayer 1\033[0m  " << player1Score << "  -  "
-				 << player2Score << "  \033[34mPlayer 2\033[0m" << std::endl;
+	if(thisPlayer == 1)
+	{
+		std::cout << INDENT << " \033[1;31mPlayer 1\033[0m  " << player1Score << "  -  "
+					 << player2Score << "  \033[34mPlayer 2\033[0m" << std::endl;
+	}
+	else
+	{
+		std::cout << INDENT << " \033[31mPlayer 1\033[0m  " << player1Score << "  -  "
+					 << player2Score << "  \033[1;34mPlayer 2\033[0m" << std::endl;
+	}
 	std::cout << INDENT << INDENT << " Player " << currentPlayer << std::endl << std::endl;
 	std::cout << std::endl << INDENT << "_____________________________" << std::endl;
 	for(int row = 0; row < nrRows; row++)
@@ -57,6 +65,7 @@ void game::draw(){
 		std::cout << column << " | ";
 	}
 	std::cout << std::endl << std::endl;
+	clearScreen();
 }
 
 int game::pickFirstPlayer(){
@@ -174,4 +183,12 @@ void game::resetBoard(){
 		{
 			this->gameTable[row][column] = ' ';
 		}
+}
+
+void game::setThisPlayer(int playerName){
+	thisPlayer = playerName;
+}
+
+int game::getThisPlayer(){
+	return thisPlayer;
 }

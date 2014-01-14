@@ -6,29 +6,29 @@ using namespace std;
 
 void drawMenu(){
 	cout << "1.Play a game" << endl;
-	cout << "2.Quit" << endl << endl;
 	cout << "Enter choice: ";
+	fflush(stdout);
 }
 
 int main()
 {
 	int choice;
 	networking net;
-
-	drawMenu();
-	cin >> choice;
 	while(1)
 	{
+		drawMenu();
+		fflush(stdin);
+		cin >> choice;
 		switch(choice)
 		{
 			case 1: net.startConnection();
 					  net.startGame();
-
+					  break;
 			case 2: exit(1);
-
+					  break;
 			default: cout << "Invalid command";
 						drawMenu();
+						break;
 		}
 	}
 }
-

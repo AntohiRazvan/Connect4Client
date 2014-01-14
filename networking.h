@@ -22,6 +22,9 @@ class networking
 
 	void getGameState(game &Game);
 	int getPlayerName();
+	bool gameOverCheck();
+	bool winConditionCheck();
+	void makeMove(game Game);
 public:
 	networking();
 	void startConnection();

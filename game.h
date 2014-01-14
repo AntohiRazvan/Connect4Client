@@ -21,6 +21,7 @@ class game
 	int player1Score;
 	int player2;
 	int player2Score;
+	int thisPlayer;
 	char gameTable[nrRows][nrColumns];
 	int currentPlayer;
 
@@ -37,6 +38,7 @@ public:
 	void changePlayer();
 	void incrementScore();
 	void resetBoard();
+	void setThisPlayer(int playerName);
 
 	bool insertDisc(int column, int player);
 	bool winCondition();
@@ -45,6 +47,7 @@ public:
 	char* serialize();
 
 	int getCurrentPlayer();
+	int getThisPlayer();
 };
 
 #endif // GAME_H
